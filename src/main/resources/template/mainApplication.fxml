@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cn.powerinv.sssj.controller.MainApplicationController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox fx:id="applicationPanel" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.powerinv.sssj.controller.MainApplicationController">
+    <MenuBar fx:id="systemMenu">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Close" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Delete" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About" />
+        </Menu>
+        <VBox.margin>
+            <Insets bottom="1.0"/>
+        </VBox.margin>
+    </MenuBar>
+    <BorderPane fx:id="mainPanel" VBox.vgrow="ALWAYS">
+        <top>
+            <HBox fx:id="filePathPanel" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                <BorderPane.margin>
+                    <Insets bottom="1.0" />
+                </BorderPane.margin>
+            </HBox>
+        </top>
+        <left>
+            <VBox fx:id="projectButtonPanel" prefHeight="800.0" prefWidth="20.0" BorderPane.alignment="CENTER">
+                <BorderPane.margin>
+                    <Insets right="1.0" />
+                </BorderPane.margin>
+            </VBox>
+        </left>
+        <right>
+            <VBox fx:id="pluginButtonPanel" maxWidth="20.0" minWidth="20.0" prefHeight="800.0" prefWidth="20.0">
+                <ToggleButton fx:id="dataSourceButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="20.0" text="数" textAlignment="CENTER" textOverrun="CLIP" />
+                <ToggleButton fx:id="layerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="20.0" text="图层" />
+                <BorderPane.margin>
+                    <Insets left="1.0" />
+                </BorderPane.margin>
+            </VBox>
+        </right>
+        <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        </center>
+        <bottom>
+            <VBox fx:id="bottomPanel" prefHeight="41.0" prefWidth="1200.0" spacing="1.0" BorderPane.alignment="CENTER">
+                <BorderPane.margin>
+                    <Insets top="1.0" />
+                </BorderPane.margin>
+                <HBox fx:id="consoleButtonPanel" prefHeight="20.0" prefWidth="1200.0" />
+                <HBox fx:id="statePanel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="1200.0">
+                    <Label fx:id="leftStatusBar" prefHeight="20.0" />
+                    <BorderPane prefHeight="20.0" HBox.hgrow="ALWAYS">
+                        <center>
+                            <Label fx:id="centerStatusBar" prefHeight="20.0" BorderPane.alignment="CENTER" />
+                        </center>
+                    </BorderPane>
+                    <Label fx:id="rightStatusBar" prefHeight="20.0" />
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </HBox>
+            </VBox>
+        </bottom>
+    </BorderPane>
+</VBox>

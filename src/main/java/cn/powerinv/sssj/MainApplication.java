@@ -15,6 +15,7 @@ public class MainApplication extends Application {
         try {
             Pane root = FXMLLoader.load(getClass().getResource("/template/mainApplication.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/style/mainApplication.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
