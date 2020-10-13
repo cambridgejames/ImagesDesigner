@@ -6,12 +6,12 @@
     -fx-background-color: #464646;
 }
 
-#systemMenu, #systemMenu *,
+#systemMenu, .context-menu, .menu:hover,
 #filePathPanel, #projectButtonPanel, #pluginButtonPanel, #consoleButtonPanel, #statePanel {
     -fx-background-color: #3c3f41;
 }
 
-#systemMenu .menu-item:hover {
+.menu:showing, .menu-item:hover, .menu-item:focused, .menu-item:showing {
     -fx-background-color: #4b6eaf;
 }
 
@@ -19,15 +19,25 @@
     -fx-text-fill: #bbb;
 }
 
-#dataSourceButton, #layerButton {
+.context-menu {
+    -fx-padding: 1px;
+}
+
+#projectTreeButton, #dataSourceButton, #layerButton {
+    -fx-padding: 1px;
     -fx-background-color: #3c3f41;
     -fx-text-alignment: center;
     -fx-text-fill: #bbb;
-    -fx-border-radius: 0;
+    -fx-border-radius: none;
 }
 
-#dataSourceButton:hover, #layerButton:hover {
+#projectTreeButton, #dataSourceButton:hover, #layerButton:hover {
     -fx-background-color: #353739;
+}
+
+#projectTreeButton, #dataSourceButton:focused, #layerButton:focused {
+    -fx-background-color: #2d2f30;
+    -fx-text-fill: #fff;
 }
 
 #statePanel .label {
