@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -12,6 +13,7 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         try {
             Pane root = FXMLLoader.load(getClass().getResource("/template/mainApplication.fxml"));
             Scene scene = new Scene(root);

@@ -24,11 +24,12 @@
 }
 
 #projectTreeButton, #dataSourceButton, #layerButton {
-    -fx-padding: 1px;
+    -fx-padding: 8px 2px;
+    -fx-border-radius: none;
+    -fx-font-size: 12px;
+    -fx-text-fill: #bbb;
     -fx-background-color: #3c3f41;
     -fx-text-alignment: center;
-    -fx-text-fill: #bbb;
-    -fx-border-radius: none;
 }
 
 #projectTreeButton, #dataSourceButton:hover, #layerButton:hover {
