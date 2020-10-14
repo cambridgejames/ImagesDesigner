@@ -1,8 +1,13 @@
+#applicationPanel {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 0);
+    -fx-background-insets: 20;
+}
+
 #mainPanel {
     -fx-background-color: #2b2b2b;
 }
 
-#applicationPanel, #bottomPanel {
+#mainBoxPanel, #bottomPanel {
     -fx-background-color: #464646;
 }
 

@@ -1,17 +1,18 @@
 package cn.powerinv.sssj.controller;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class MainApplicationController {
 
-    @FXML public VBox applicationPanel;
+    @FXML public StackPane applicationPanel;
+    @FXML public VBox mainBoxPanel;
 
     @FXML public MenuBar systemMenu;
 
@@ -37,6 +38,8 @@ public class MainApplicationController {
 
     @FXML
     public void initialize() {
+        applicationPanel.setPadding(new Insets(20));
+
         this.projectButtonGroup = new ToggleGroup();
         projectTreeButton.setToggleGroup(pluginButtonGroup);
 
