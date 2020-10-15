@@ -7,11 +7,15 @@
     -fx-background-color: #2b2b2b;
 }
 
-#mainBoxPanel, #bottomPanel {
+#mainBoxPanel {
+    -fx-background-color: #515151;
+}
+
+#bottomPanel {
     -fx-background-color: #464646;
 }
 
-#systemMenu, .context-menu, .menu:hover,
+#systemMenu, .context-menu, .menu:hover, #titlePanel,
 #filePathPanel, #projectButtonPanel, #pluginButtonPanel, #consoleButtonPanel, #statePanel {
     -fx-background-color: #3c3f41;
 }
@@ -28,8 +32,37 @@
     -fx-padding: 1px;
 }
 
+#titleBarLabel {
+    -fx-text-fill: #919191;
+}
+
+#minimumButton, #maximumButton, #cancelButton {
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-font-size: 12px;
+    -fx-text-fill: #bbb;
+    -fx-background-color: #3c3f41;
+    -fx-text-alignment: center;
+    -fx-border-width: 0;
+}
+
+#minimumButton:hover, #minimumButton:armed, #maximumButton:hover, #maximumButton:armed {
+    -fx-background-color: #4f5254;
+}
+
+#cancelButton:hover {
+    -fx-background-color: #e81123;
+}
+
+#cancelButton:armed {
+    -fx-background-color: #f1707a;
+}
+
 #projectTreeButton, #dataSourceButton, #layerButton {
     -fx-padding: 8px 2px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
     -fx-border-radius: none;
     -fx-font-size: 12px;
     -fx-text-fill: #bbb;
