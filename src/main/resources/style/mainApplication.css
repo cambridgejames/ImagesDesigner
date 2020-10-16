@@ -20,6 +20,14 @@
     -fx-background-color: #3c3f41;
 }
 
+.menu-bar {
+    -fx-padding: 0;
+}
+
+.menu, .menu-item {
+    -fx-padding: 5px;
+}
+
 .menu:showing, .menu-item:hover, .menu-item:focused, .menu-item:showing {
     -fx-background-color: #4b6eaf;
 }
@@ -32,8 +40,13 @@
     -fx-padding: 1px;
 }
 
+.context-menu .menu, .context-menu .menu-item {
+    -fx-padding: 5px 10px;
+}
+
 #titleBarLabel {
     -fx-text-fill: #919191;
+    -fx-padding: 0 10px;
 }
 
 #minimumButton, #maximumButton, #cancelButton {
