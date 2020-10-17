@@ -1,12 +1,17 @@
 package cn.powerinv.sssj.controller;
 
+import cn.powerinv.sssj.listener.utils.DragUtil;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 
-public class MainApplicationController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainApplicationController implements Initializable {
 
     @FXML public StackPane applicationPanel;
     @FXML public VBox mainBoxPanel;
@@ -21,12 +26,11 @@ public class MainApplicationController {
     @FXML public BorderPane mainPanel;
 
     @FXML public VBox projectButtonPanel;
+    @FXML public BorderPane titleBarPanel;
     @FXML public Label titleBarLabel;
-    private ToggleGroup projectButtonGroup;
     @FXML public ToggleButton projectTreeButton;
 
     @FXML public VBox pluginButtonPanel;
-    private ToggleGroup pluginButtonGroup;
     @FXML public ToggleButton dataSourceButton;
     @FXML public ToggleButton layerButton;
 
@@ -38,8 +42,12 @@ public class MainApplicationController {
     @FXML public Label centerStatusBar;
     @FXML public Label rightStatusBar;
 
-    @FXML
-    public void initialize() {
+    private ToggleGroup projectButtonGroup;
+    private ToggleGroup pluginButtonGroup;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        DragUtil.addDragListener(applicationPanel, titleBarPanel);
         applicationPanel.setPadding(new Insets(20));
 
         this.projectButtonGroup = new ToggleGroup();

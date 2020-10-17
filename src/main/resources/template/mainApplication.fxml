@@ -30,7 +30,7 @@
                     <MenuItem mnemonicParsing="false" text="About" />
                 </Menu>
             </MenuBar>
-            <BorderPane prefHeight="28.0" HBox.hgrow="ALWAYS">
+            <BorderPane fx:id="titleBarPanel" prefHeight="28.0" HBox.hgrow="ALWAYS">
                 <center>
                     <Label fx:id="titleBarLabel" text="Sssj Card Designer" BorderPane.alignment="CENTER_LEFT" />
                 </center>
