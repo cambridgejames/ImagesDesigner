@@ -1,11 +1,9 @@
-package cn.powerinv.sssj.utils.listener;
+package cn.powerinv.sssj.controller.listener;
 
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import java.text.MessageFormat;
 
 /**
  * 拖拽更改窗口大小事件监听类
@@ -157,5 +155,12 @@ public class ResizeListener {
             primaryStage.setWidth(nextWidth);
             primaryStage.setHeight(nextHeight);
         });
+    }
+
+    public void unableResize() {
+        rootNode.setOnMouseMoved(null);
+        rootNode.setOnMousePressed(null);
+        rootNode.setOnMouseDragged(null);
+        rootNode.setCursor(Cursor.DEFAULT);
     }
 }
