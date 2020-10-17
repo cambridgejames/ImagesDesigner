@@ -1,6 +1,6 @@
 #applicationPanel {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 0);
-    -fx-background-insets: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 0);
+    -fx-background-insets: 10;
 }
 
 #mainPanel {
