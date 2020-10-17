@@ -1,0 +1,111 @@
+#applicationPanel {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 0);
+    -fx-background-insets: 20;
+}
+
+#mainPanel {
+    -fx-background-color: #2b2b2b;
+}
+
+#mainBoxPanel {
+    -fx-background-color: #515151;
+}
+
+#bottomPanel {
+    -fx-background-color: #464646;
+}
+
+#systemMenu, .context-menu, .menu:hover, #titlePanel,
+#filePathPanel, #projectButtonPanel, #pluginButtonPanel, #consoleButtonPanel, #statePanel {
+    -fx-background-color: #3c3f41;
+}
+
+.menu-bar {
+    -fx-padding: 0;
+}
+
+.menu, .menu-item {
+    -fx-padding: 5px;
+}
+
+.menu:showing, .menu-item:hover, .menu-item:focused, .menu-item:showing {
+    -fx-background-color: #4b6eaf;
+}
+
+#systemMenu .label {
+    -fx-text-fill: #bbb;
+}
+
+.context-menu {
+    -fx-padding: 1px;
+}
+
+.context-menu .menu, .context-menu .menu-item {
+    -fx-padding: 5px 10px;
+}
+
+#titleBarLabel {
+    -fx-text-fill: #919191;
+    -fx-padding: 0 10px;
+}
+
+#minimumButton, #maximumButton, #cancelButton {
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-font-size: 12px;
+    -fx-text-fill: #bbb;
+    -fx-background-color: #3c3f41;
+    -fx-text-alignment: center;
+    -fx-border-width: 0;
+}
+
+#minimumButton {
+    -fx-graphic: url("/images/darcula/systemButton/minimize_normal_10.png");
+}
+
+#maximumButton {
+    -fx-graphic: url("/images/darcula/systemButton/maximize_normal_10.png");
+}
+
+#minimumButton:hover, #minimumButton:armed, #maximumButton:hover, #maximumButton:armed {
+    -fx-background-color: #4f5254;
+}
+
+#cancelButton {
+    -fx-graphic: url("/images/darcula/systemButton/close_normal_10.png");
+}
+
+#cancelButton:hover {
+    -fx-graphic: url("/images/darcula/systemButton/close_hover_10.png");
+    -fx-background-color: #e81123;
+}
+
+#cancelButton:armed {
+    -fx-graphic: url("/images/darcula/systemButton/close_hover_10.png");
+    -fx-background-color: #f1707a;
+}
+
+#projectTreeButton, #dataSourceButton, #layerButton {
+    -fx-padding: 8px 2px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-radius: none;
+    -fx-font-size: 12px;
+    -fx-text-fill: #bbb;
+    -fx-background-color: #3c3f41;
+    -fx-text-alignment: center;
+}
+
+#projectTreeButton, #dataSourceButton:hover, #layerButton:hover {
+    -fx-background-color: #353739;
+}
+
+#projectTreeButton, #dataSourceButton:focused, #layerButton:focused {
+    -fx-background-color: #2d2f30;
+    -fx-text-fill: #fff;
+}
+
+#statePanel .label {
+    -fx-text-fill: #bbb;
+}
