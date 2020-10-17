@@ -35,11 +35,7 @@ public class DragListener implements EventHandler<MouseEvent> {
             yOffset = event.getSceneY();
         } else if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
             primaryStage.setX(event.getScreenX() - xOffset);
-            if (event.getScreenY() - yOffset < 0) {
-                primaryStage.setY(0);
-            } else {
-                primaryStage.setY(event.getScreenY() - yOffset);
-            }
+            primaryStage.setY(event.getScreenY() - yOffset);
         }
     }
 

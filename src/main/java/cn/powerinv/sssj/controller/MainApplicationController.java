@@ -1,6 +1,6 @@
 package cn.powerinv.sssj.controller;
 
-import cn.powerinv.sssj.utils.DragUtil;
+import cn.powerinv.sssj.utils.WindowListenerUtil;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,8 +47,10 @@ public class MainApplicationController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DragUtil.addDragListener(applicationPanel, titleBarPanel);
-        applicationPanel.setPadding(new Insets(20));
+        WindowListenerUtil.addDragListener(applicationPanel, titleBarPanel);
+        WindowListenerUtil.addResizeListener(applicationPanel);
+
+        applicationPanel.setPadding(new Insets(10));
 
         this.projectButtonGroup = new ToggleGroup();
         projectTreeButton.setToggleGroup(projectButtonGroup);
