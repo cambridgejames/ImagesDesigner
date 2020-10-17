@@ -1,4 +1,4 @@
-package cn.powerinv.sssj.listener;
+package cn.powerinv.sssj.utils.listener;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;

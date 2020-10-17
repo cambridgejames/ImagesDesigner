@@ -1,6 +1,6 @@
-package cn.powerinv.sssj.listener.utils;
+package cn.powerinv.sssj.utils;
 
-import cn.powerinv.sssj.listener.DragListener;
+import cn.powerinv.sssj.utils.listener.DragListener;
 
 import javafx.scene.Node;
 

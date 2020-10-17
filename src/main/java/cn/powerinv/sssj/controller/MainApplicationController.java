@@ -1,6 +1,6 @@
 package cn.powerinv.sssj.controller;
 
-import cn.powerinv.sssj.listener.utils.DragUtil;
+import cn.powerinv.sssj.utils.DragUtil;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
