@@ -61,11 +61,11 @@
 }
 
 #minimumButton {
-    -fx-graphic: url("/images/darcula/systemButton/minimize_normal_10.png");
+    -fx-graphic: url("../images/systemButton/minimize_normal_10.png");
 }
 
 #maximumButton {
-    -fx-graphic: url("/images/darcula/systemButton/maximize_normal_10.png");
+    -fx-graphic: url("../images/systemButton/maximize_normal_10.png");
 }
 
 #minimumButton:hover, #minimumButton:armed, #maximumButton:hover, #maximumButton:armed {
@@ -73,16 +73,16 @@
 }
 
 #cancelButton {
-    -fx-graphic: url("/images/darcula/systemButton/close_normal_10.png");
+    -fx-graphic: url("../images/systemButton/close_normal_10.png");
 }
 
 #cancelButton:hover {
-    -fx-graphic: url("/images/darcula/systemButton/close_hover_10.png");
+    -fx-graphic: url("../images/systemButton/close_hover_10.png");
     -fx-background-color: #e81123;
 }
 
 #cancelButton:armed {
-    -fx-graphic: url("/images/darcula/systemButton/close_hover_10.png");
+    -fx-graphic: url("../images/systemButton/close_hover_10.png");
     -fx-background-color: #f1707a;
 }
 

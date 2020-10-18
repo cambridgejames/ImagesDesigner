@@ -3,10 +3,13 @@ package cn.powerinv.sssj.controller;
 import cn.powerinv.sssj.controller.listener.DragListener;
 import cn.powerinv.sssj.controller.listener.ResizeListener;
 
+import cn.powerinv.sssj.util.ThemeUtil;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -50,6 +53,7 @@ public class MainApplicationController implements Initializable {
     private DragListener dragListener;
     private ResizeListener resizeListener;
 
+    private boolean isMaximize;
     private ImageView maximizeImageView;
     private ImageView restoreImageView;
 
@@ -65,11 +69,6 @@ public class MainApplicationController implements Initializable {
 
         applicationPanel.setPadding(new Insets(10));
 
-        maximizeImageView = new ImageView(new Image(getClass().getResourceAsStream(
-                "/images/darcula/systemButton/maximize_normal_10.png")));
-        restoreImageView = new ImageView(new Image(getClass().getResourceAsStream(
-                "/images/darcula/systemButton/restore_normal_10.png")));
-
         this.projectButtonGroup = new ToggleGroup();
         projectTreeButton.setToggleGroup(projectButtonGroup);
 
@@ -80,6 +79,22 @@ public class MainApplicationController implements Initializable {
         leftStatusBar.setText("Card designer is ready (a minute ago)");
     }
 
+    public void setTheme(ThemeUtil.Theme theme) {
+        ThemeUtil.theme = theme;
+        String resourceRoot = ThemeUtil.getResourceRoot();
+
+        maximizeImageView = new ImageView(new Image(getClass().getResourceAsStream(
+                resourceRoot + "/images/systemButton/maximize_normal_10.png")));
+        restoreImageView = new ImageView(new Image(getClass().getResourceAsStream(
+                resourceRoot + "/images/systemButton/restore_normal_10.png")));
+        maximumButton.setGraphic(isMaximize ? maximizeImageView : restoreImageView);
+
+        Scene scene = applicationPanel.getScene();
+        ObservableList<String> stylesheets = scene.getStylesheets();
+        stylesheets.clear();
+        stylesheets.add(getClass().getResource(resourceRoot + "/style/mainApplication.css").toExternalForm());
+    }
+
     @FXML
     public void minimizeWindow(ActionEvent actionEvent) {
         Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
@@ -88,22 +103,21 @@ public class MainApplicationController implements Initializable {
 
     @FXML
     public void maximizeWindow(ActionEvent actionEvent) {
-        maximumButton.setOnAction(this::restoreWindow);
-        applicationPanel.setPadding(new Insets(0));
-        Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-        primaryStage.setMaximized(true);
-        maximumButton.setGraphic(restoreImageView);
-        resizeListener.unableResize();
-    }
-
-    @FXML
-    public void restoreWindow(ActionEvent actionEvent) {
-        maximumButton.setOnAction(this::maximizeWindow);
-        applicationPanel.setPadding(new Insets(10));
-        Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-        primaryStage.setMaximized(false);
-        maximumButton.setGraphic(maximizeImageView);
-        resizeListener.enableResize();
+        if (isMaximize) {
+            isMaximize= false;
+            applicationPanel.setPadding(new Insets(10));
+            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
+            primaryStage.setMaximized(false);
+            maximumButton.setGraphic(maximizeImageView);
+            resizeListener.enableResize();
+        } else {
+            isMaximize = true;
+            applicationPanel.setPadding(new Insets(0));
+            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
+            primaryStage.setMaximized(true);
+            maximumButton.setGraphic(restoreImageView);
+            resizeListener.unableResize();
+        }
     }
 
     @FXML
