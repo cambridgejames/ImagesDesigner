@@ -6,6 +6,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.SVGPath?>
 <StackPane fx:id="applicationPanel" prefHeight="800.0" prefWidth="1200.0" fx:controller="cn.powerinv.sssj.controller.MainApplicationController"
            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <VBox fx:id="mainBoxPanel" VBox.vgrow="ALWAYS" spacing="1.0">
@@ -38,7 +39,11 @@
             <HBox prefHeight="28.0">
                 <Button fx:id="minimumButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#minimizeWindow"/>
                 <Button fx:id="maximumButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#maximizeWindow"/>
-                <Button fx:id="cancelButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#closeWindow"/>
+                <Button fx:id="cancelButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#closeWindow">
+                    <graphic>
+                        <SVGPath content="M0 0 L0 1 L4 5 L0 9 L0 10 L1 10 L5 6 L9 10 L10 10 L10 9 L6 5 L10 1 L10 0 L9 0 L5 4 L1 0 Z"/>
+                    </graphic>
+                </Button>
             </HBox>
         </HBox>
         <BorderPane fx:id="mainPanel" VBox.vgrow="ALWAYS">

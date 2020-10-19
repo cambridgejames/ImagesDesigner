@@ -1,7 +1,11 @@
 package cn.powerinv.sssj.util;
 
-import javafx.scene.Scene;
+import lombok.extern.slf4j.Slf4j;
 
+import java.net.URL;
+import java.text.MessageFormat;
+
+@Slf4j
 public class ThemeUtil {
     public static enum Theme {
         DARCULAR("Darcular", "darcular");
@@ -25,7 +29,9 @@ public class ThemeUtil {
 
     public static Theme theme;
 
-    public static String getResourceRoot() {
-        return "/themes/" + theme.getRoute();
+    public static URL getStyleResource(String resourcePath) {
+        String url = "/style/theme/" + theme.getRoute() + resourcePath;
+        log.warn(MessageFormat.format("Load resource file: {0}", url));
+        return ThemeUtil.class.getResource(url);
     }
 }

@@ -21,14 +21,13 @@ public class MainApplication extends Application {
     public void start(Stage primaryStage) {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
-        StackPane root;
         try {
             URL location = getClass().getResource("/template/mainApplication.fxml");
 
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(location);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
-            root = fxmlLoader.load(location.openStream());
+            StackPane root = fxmlLoader.load(location.openStream());
             MainApplicationController control = fxmlLoader.getController();
 
             Scene scene = new Scene(root);
@@ -36,7 +35,6 @@ public class MainApplication extends Application {
             primaryStage.setScene(scene);
 
             control.setTheme(ThemeUtil.Theme.DARCULAR);
-
         } catch (IOException e) {
             e.printStackTrace();
             return;

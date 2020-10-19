@@ -67,6 +67,12 @@ public class MainApplicationController implements Initializable {
         resizeListener = new ResizeListener(applicationPanel);
         resizeListener.enableResize();
 
+        /*maximizeImageView = new ImageView(new Image(getClass().getResourceAsStream(
+                resourceRoot + "/images/systemButton/maximize_normal_10.png")));
+        restoreImageView = new ImageView(new Image(getClass().getResourceAsStream(
+                resourceRoot + "/images/systemButton/restore_normal_10.png")));
+        maximumButton.setGraphic(isMaximize ? maximizeImageView : restoreImageView);*/
+
         applicationPanel.setPadding(new Insets(10));
 
         this.projectButtonGroup = new ToggleGroup();
@@ -81,18 +87,10 @@ public class MainApplicationController implements Initializable {
 
     public void setTheme(ThemeUtil.Theme theme) {
         ThemeUtil.theme = theme;
-        String resourceRoot = ThemeUtil.getResourceRoot();
-
-        maximizeImageView = new ImageView(new Image(getClass().getResourceAsStream(
-                resourceRoot + "/images/systemButton/maximize_normal_10.png")));
-        restoreImageView = new ImageView(new Image(getClass().getResourceAsStream(
-                resourceRoot + "/images/systemButton/restore_normal_10.png")));
-        maximumButton.setGraphic(isMaximize ? maximizeImageView : restoreImageView);
-
         Scene scene = applicationPanel.getScene();
         ObservableList<String> stylesheets = scene.getStylesheets();
         stylesheets.clear();
-        stylesheets.add(getClass().getResource(resourceRoot + "/style/mainApplication.css").toExternalForm());
+        stylesheets.add(ThemeUtil.getStyleResource("/mainApplication.css").toExternalForm());
     }
 
     @FXML
