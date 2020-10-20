@@ -2,14 +2,11 @@ package cn.powerinv.sssj.controller;
 
 import cn.powerinv.sssj.controller.listener.DragListener;
 import cn.powerinv.sssj.controller.listener.ResizeListener;
-import cn.powerinv.sssj.util.ThemeUtil;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.shape.SVGPath;
@@ -87,14 +84,6 @@ public class MainApplicationController implements Initializable {
         layerButton.setToggleGroup(pluginButtonGroup);
 
         leftStatusBar.setText("Card designer is ready (a minute ago)");
-    }
-
-    public void setTheme(ThemeUtil.Theme theme) {
-        ThemeUtil.theme = theme;
-        Scene scene = applicationPanel.getScene();
-        ObservableList<String> stylesheets = scene.getStylesheets();
-        stylesheets.clear();
-        stylesheets.add(ThemeUtil.getStyleResource("/mainApplication.css").toExternalForm());
     }
 
     @FXML
