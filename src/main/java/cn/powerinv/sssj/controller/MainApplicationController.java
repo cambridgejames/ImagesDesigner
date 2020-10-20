@@ -8,9 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -50,8 +49,9 @@ public class MainApplicationController implements Initializable {
     private DragListener dragListener;
     private ResizeListener resizeListener;
 
-    private ImageView maximizeImageView;
-    private ImageView restoreImageView;
+    private boolean isMaximize;
+    private SVGPath maximizeSVGPath;
+    private SVGPath restoreSVGPath;
 
     private ToggleGroup projectButtonGroup;
     private ToggleGroup pluginButtonGroup;
@@ -63,12 +63,18 @@ public class MainApplicationController implements Initializable {
         resizeListener = new ResizeListener(applicationPanel);
         resizeListener.enableResize();
 
-        applicationPanel.setPadding(new Insets(10));
+        maximizeSVGPath = new SVGPath();
+        maximizeSVGPath.setContent("M0 0 L0 10 L10 10 L10 0 L1 0 L1 1 L9 1 L9 9 L1 9 L1 0 Z");
+        restoreSVGPath = new SVGPath();
+        restoreSVGPath.setContent("M0 2 L0 10 L8 10 L8 8 L10 8 L10 0 L2 0 L2 2 L1 2 L1 3 L3 3 " +
+                "L3 1 L9 1 L9 7 L8 7 L8 2 L3 2 L3 3 L7 3 L7 9 L1 9 L1 2 Z");
+        if (isMaximize) {
+            maximumButton.setGraphic(restoreSVGPath);
+        } else {
+            maximumButton.setGraphic(maximizeSVGPath);
+        }
 
-        maximizeImageView = new ImageView(new Image(getClass().getResourceAsStream(
-                "/images/darcula/systemButton/maximize_normal_10.png")));
-        restoreImageView = new ImageView(new Image(getClass().getResourceAsStream(
-                "/images/darcula/systemButton/restore_normal_10.png")));
+        applicationPanel.setPadding(new Insets(10));
 
         this.projectButtonGroup = new ToggleGroup();
         projectTreeButton.setToggleGroup(projectButtonGroup);
@@ -88,22 +94,21 @@ public class MainApplicationController implements Initializable {
 
     @FXML
     public void maximizeWindow(ActionEvent actionEvent) {
-        maximumButton.setOnAction(this::restoreWindow);
-        applicationPanel.setPadding(new Insets(0));
-        Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-        primaryStage.setMaximized(true);
-        maximumButton.setGraphic(restoreImageView);
-        resizeListener.unableResize();
-    }
-
-    @FXML
-    public void restoreWindow(ActionEvent actionEvent) {
-        maximumButton.setOnAction(this::maximizeWindow);
-        applicationPanel.setPadding(new Insets(10));
-        Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-        primaryStage.setMaximized(false);
-        maximumButton.setGraphic(maximizeImageView);
-        resizeListener.enableResize();
+        if (isMaximize) {
+            isMaximize= false;
+            applicationPanel.setPadding(new Insets(10));
+            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
+            primaryStage.setMaximized(false);
+            maximumButton.setGraphic(maximizeSVGPath);
+            resizeListener.enableResize();
+        } else {
+            isMaximize = true;
+            applicationPanel.setPadding(new Insets(0));
+            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
+            primaryStage.setMaximized(true);
+            maximumButton.setGraphic(restoreSVGPath);
+            resizeListener.unableResize();
+        }
     }
 
     @FXML

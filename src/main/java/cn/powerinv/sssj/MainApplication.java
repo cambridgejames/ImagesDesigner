@@ -1,5 +1,7 @@
 package cn.powerinv.sssj;
 
+import cn.powerinv.sssj.util.ThemeUtil;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +11,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainApplication extends Application {
 
@@ -16,13 +20,16 @@ public class MainApplication extends Application {
     public void start(Stage primaryStage) {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
-        StackPane root;
         try {
-            root = FXMLLoader.load(getClass().getResource("/template/mainApplication.fxml"));
+            Pane root = FXMLLoader.load(getClass().getResource("/template/mainApplication.fxml"));
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);
-            scene.getStylesheets().add(getClass().getResource("/style/mainApplication.css").toExternalForm());
+
+            List<String> styleList = new ArrayList<>();
+            styleList.add("/mainApplication.css");
+            ThemeUtil.registerScene(scene, styleList);
+            ThemeUtil.setTheme(ThemeUtil.Theme.DARCULAR);
         } catch (IOException e) {
             e.printStackTrace();
             return;

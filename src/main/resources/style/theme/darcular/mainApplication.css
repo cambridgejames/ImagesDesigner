@@ -60,29 +60,32 @@
     -fx-border-width: 0;
 }
 
-#minimumButton {
-    -fx-graphic: url("/images/darcula/systemButton/minimize_normal_10.png");
+#minimumButton SVGPath, #maximumButton SVGPath {
+    -fx-fill: #8c8c8c;
 }
 
-#maximumButton {
-    -fx-graphic: url("/images/darcula/systemButton/maximize_normal_10.png");
+#minimumButton:hover SVGPath, #minimumButton:armed SVGPath,
+#maximumButton:hover SVGPath, #maximumButton:armed SVGPath {
+    -fx-fill: #b1b1b1;
 }
 
 #minimumButton:hover, #minimumButton:armed, #maximumButton:hover, #maximumButton:armed {
     -fx-background-color: #4f5254;
 }
 
-#cancelButton {
-    -fx-graphic: url("/images/darcula/systemButton/close_normal_10.png");
+#cancelButton SVGPath{
+    -fx-fill:  #a2a2a2;
 }
 
-#cancelButton:hover {
-    -fx-graphic: url("/images/darcula/systemButton/close_hover_10.png");
+#cancelButton:hover SVGPath, #cancelButton:armed SVGPath {
+    -fx-fill:  #fff;
+}
+
+#cancelButton:hover{
     -fx-background-color: #e81123;
 }
 
 #cancelButton:armed {
-    -fx-graphic: url("/images/darcula/systemButton/close_hover_10.png");
     -fx-background-color: #f1707a;
 }
 
