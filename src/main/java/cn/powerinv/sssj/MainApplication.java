@@ -1,8 +1,8 @@
 package cn.powerinv.sssj;
 
 import cn.powerinv.sssj.controller.MainApplicationController;
-
 import cn.powerinv.sssj.util.ThemeUtil;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;

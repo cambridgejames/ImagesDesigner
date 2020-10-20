@@ -7,7 +7,7 @@ import java.text.MessageFormat;
 
 @Slf4j
 public class ThemeUtil {
-    public static enum Theme {
+    public enum Theme {
         DARCULAR("Darcular", "darcular");
 
         private String name;

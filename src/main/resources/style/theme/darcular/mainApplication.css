@@ -60,12 +60,13 @@
     -fx-border-width: 0;
 }
 
-#minimumButton {
-    -fx-graphic: url("/images/systemButton/minimize_normal_10.png");
+#minimumButton SVGPath, #maximumButton SVGPath {
+    -fx-fill: #8c8c8c;
 }
 
-#maximumButton {
-    -fx-graphic: url("/images/systemButton/maximize_normal_10.png");
+#minimumButton:hover SVGPath, #minimumButton:armed SVGPath,
+#maximumButton:hover SVGPath, #maximumButton:armed SVGPath {
+    -fx-fill: #b1b1b1;
 }
 
 #minimumButton:hover, #minimumButton:armed, #maximumButton:hover, #maximumButton:armed {
