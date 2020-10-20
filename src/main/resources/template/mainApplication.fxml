@@ -13,7 +13,7 @@
         <HBox fx:id="titlePanel" prefHeight="28.0" minHeight="28.0" maxHeight="28.0">
             <StackPane prefHeight="28.0" prefWidth="28.0">
                 <ImageView>
-                    <Image url="file:designer.png"/>
+                    <Image url="/icon.png"/>
                 </ImageView>
             </StackPane>
             <MenuBar fx:id="systemMenu" prefHeight="28.0">
