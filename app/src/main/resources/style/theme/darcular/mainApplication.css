@@ -100,11 +100,11 @@
     -fx-text-alignment: center;
 }
 
-#projectTreeButton, #dataSourceButton:hover, #layerButton:hover {
+#projectTreeButton:hover, #dataSourceButton:hover, #layerButton:hover {
     -fx-background-color: #353739;
 }
 
-#projectTreeButton, #dataSourceButton:focused, #layerButton:focused {
+#projectTreeButton:selected, #dataSourceButton:selected, #layerButton:selected {
     -fx-background-color: #2d2f30;
     -fx-text-fill: #fff;
 }
