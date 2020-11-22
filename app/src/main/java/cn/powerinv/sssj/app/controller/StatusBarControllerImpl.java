@@ -1,4 +1,4 @@
-package cn.powerinv.sssj.controller;
+package cn.powerinv.sssj.app.controller;
 
 import cn.powerinv.sssj.sdk.server.StatusBarController;
 

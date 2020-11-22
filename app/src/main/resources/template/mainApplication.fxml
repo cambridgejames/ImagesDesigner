@@ -7,10 +7,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.shape.SVGPath?>
-<StackPane fx:id="applicationPanel" prefHeight="800.0" prefWidth="1200.0" fx:controller="cn.powerinv.sssj.controller.MainApplicationController"
+
+<StackPane fx:id="applicationPanel" prefHeight="800.0" prefWidth="1200.0" fx:controller="cn.powerinv.sssj.app.controller.MainApplicationController"
            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <VBox fx:id="mainBoxPanel" VBox.vgrow="ALWAYS" spacing="1.0">
-        <HBox fx:id="titlePanel" prefHeight="28.0" minHeight="28.0" maxHeight="28.0">
+        <HBox styleClass="normalPanel" prefHeight="28.0" minHeight="28.0" maxHeight="28.0">
             <StackPane prefHeight="28.0" prefWidth="28.0">
                 <ImageView>
                     <Image url="/icon.png"/>
@@ -37,13 +38,13 @@
                 </center>
             </BorderPane>
             <HBox prefHeight="28.0">
-                <Button fx:id="minimumButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#minimizeWindow">
+                <Button fx:id="minimumButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#minimizeWindow">
                     <graphic>
                         <SVGPath content="M0 0 L0 1 L10 1 L10 0 Z"/>
                     </graphic>
                 </Button>
-                <Button fx:id="maximumButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#maximizeWindow"/>
-                <Button fx:id="cancelButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#closeWindow">
+                <Button fx:id="maximumButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#maximizeWindow"/>
+                <Button fx:id="cancelButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#closeWindow">
                     <graphic>
                         <SVGPath content="M0 0 L0 1 L4 5 L0 9 L0 10 L1 10 L5 6 L9 10 L10 10 L10 9 L6 5 L10 1 L10 0 L9 0 L5 4 L1 0 Z"/>
                     </graphic>
@@ -52,15 +53,15 @@
         </HBox>
         <BorderPane fx:id="mainPanel" VBox.vgrow="ALWAYS">
             <top>
-                <HBox fx:id="filePathPanel" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                <HBox styleClass="normalPanel" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                     <BorderPane.margin>
                         <Insets bottom="1.0" />
                     </BorderPane.margin>
                 </HBox>
             </top>
             <left>
-                <VBox fx:id="projectButtonPanel" prefHeight="800.0" prefWidth="20.0" BorderPane.alignment="CENTER">
-                    <ToggleButton fx:id="projectTreeButton" mnemonicParsing="false" wrapText="true" text="工程"
+                <VBox styleClass="normalPanel" prefHeight="800.0" prefWidth="20.0" BorderPane.alignment="CENTER">
+                    <ToggleButton fx:id="projectTreeButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true" text="工程"
                                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="20.0"/>
                     <BorderPane.margin>
                         <Insets right="1.0" />
@@ -68,10 +69,10 @@
                 </VBox>
             </left>
             <right>
-                <VBox fx:id="pluginButtonPanel" maxWidth="20.0" minWidth="20.0" prefHeight="800.0" prefWidth="20.0">
-                    <ToggleButton fx:id="dataSourceButton" mnemonicParsing="false" wrapText="true" text="数据源"
+                <VBox styleClass="normalPanel" maxWidth="20.0" minWidth="20.0" prefHeight="800.0" prefWidth="20.0">
+                    <ToggleButton fx:id="dataSourceButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true" text="数据源"
                                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="20.0"/>
-                    <ToggleButton fx:id="layerButton" mnemonicParsing="false" wrapText="true" text="图层"
+                    <ToggleButton fx:id="layerButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true" text="图层"
                                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="20.0"/>
                     <BorderPane.margin>
                         <Insets left="1.0" />
@@ -86,8 +87,8 @@
                     <BorderPane.margin>
                         <Insets top="1.0" />
                     </BorderPane.margin>
-                    <HBox fx:id="consoleButtonPanel" prefHeight="20.0" prefWidth="1200.0" />
-                    <HBox fx:id="statePanel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="1200.0">
+                    <HBox styleClass="normalPanel" prefHeight="20.0" prefWidth="1200.0" />
+                    <HBox styleClass="normalPanel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="1200.0">
                         <Label fx:id="leftStatusBar" prefHeight="20.0" />
                         <BorderPane prefHeight="20.0" HBox.hgrow="ALWAYS">
                             <center>

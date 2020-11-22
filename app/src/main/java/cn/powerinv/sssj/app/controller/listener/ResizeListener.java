@@ -1,4 +1,4 @@
-package cn.powerinv.sssj.controller.listener;
+package cn.powerinv.sssj.app.controller.listener;
 
 import javafx.scene.Cursor;
 import javafx.scene.Node;

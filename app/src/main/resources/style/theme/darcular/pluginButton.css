@@ -1,0 +1,19 @@
+.pluginButton {
+    -fx-padding: 8px 2px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-radius: none;
+    -fx-font-size: 12px;
+    -fx-text-fill: #bbb;
+    -fx-background-color: #3c3f41;
+    -fx-text-alignment: center;
+}
+
+.pluginButton:hover {
+    -fx-background-color: #353739;
+}
+
+.pluginButton:selected {
+    -fx-background-color: #2d2f30;
+    -fx-text-fill: #fff;
+}

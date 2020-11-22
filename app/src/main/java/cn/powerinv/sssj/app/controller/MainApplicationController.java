@@ -1,7 +1,7 @@
-package cn.powerinv.sssj.controller;
+package cn.powerinv.sssj.app.controller;
 
-import cn.powerinv.sssj.controller.listener.DragListener;
-import cn.powerinv.sssj.controller.listener.ResizeListener;
+import cn.powerinv.sssj.app.controller.listener.DragListener;
+import cn.powerinv.sssj.app.controller.listener.ResizeListener;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,27 +20,21 @@ public class MainApplicationController implements Initializable {
     @FXML public StackPane applicationPanel;
     @FXML public VBox mainBoxPanel;
 
-    @FXML public HBox titlePanel;
     @FXML public MenuBar systemMenu;
     @FXML public Button minimumButton;
     @FXML public Button maximumButton;
     @FXML public Button cancelButton;
 
-    @FXML public HBox filePathPanel;
     @FXML public BorderPane mainPanel;
 
-    @FXML public VBox projectButtonPanel;
     @FXML public BorderPane titleBarPanel;
     @FXML public Label titleBarLabel;
     @FXML public ToggleButton projectTreeButton;
 
-    @FXML public VBox pluginButtonPanel;
     @FXML public ToggleButton dataSourceButton;
     @FXML public ToggleButton layerButton;
 
     @FXML public VBox bottomPanel;
-    @FXML public HBox consoleButtonPanel;
-    @FXML public HBox statePanel;
 
     @FXML public Label leftStatusBar;
     @FXML public Label centerStatusBar;

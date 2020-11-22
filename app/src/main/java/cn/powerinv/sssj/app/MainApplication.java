@@ -1,6 +1,6 @@
-package cn.powerinv.sssj;
+package cn.powerinv.sssj.app;
 
-import cn.powerinv.sssj.util.ThemeUtil;
+import cn.powerinv.sssj.app.util.ThemeUtil;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +28,7 @@ public class MainApplication extends Application {
 
             List<String> styleList = new ArrayList<>();
             styleList.add("/mainApplication.css");
+            styleList.add("/pluginButton.css");
             ThemeUtil.registerScene(scene, styleList);
             ThemeUtil.setTheme(ThemeUtil.Theme.DARCULAR);
         } catch (IOException e) {
