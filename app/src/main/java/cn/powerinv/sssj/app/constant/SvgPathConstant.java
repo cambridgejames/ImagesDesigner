@@ -1,6 +1,7 @@
 package cn.powerinv.sssj.app.constant;
 
 import cn.powerinv.sssj.app.util.SVGPathConvertUtil;
+
 import javafx.scene.shape.SVGPath;
 
 /**
