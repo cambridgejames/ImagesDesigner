@@ -6,9 +6,9 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.shape.SVGPath?>
 
-<StackPane fx:id="applicationPanel" prefHeight="800.0" prefWidth="1200.0" fx:controller="cn.powerinv.sssj.app.controller.MainApplicationController"
+<StackPane fx:id="applicationPanel" prefHeight="800.0" prefWidth="1200.0"
+           fx:controller="cn.powerinv.sssj.app.controller.MainApplicationController"
            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <VBox fx:id="mainBoxPanel" VBox.vgrow="ALWAYS" spacing="1.0">
         <HBox styleClass="normalPanel" prefHeight="28.0" minHeight="28.0" maxHeight="28.0">
@@ -20,84 +20,87 @@
             <MenuBar fx:id="systemMenu" prefHeight="28.0">
                 <Menu mnemonicParsing="false" text="File">
                     <Menu mnemonicParsing="false" text="New">
-                        <MenuItem mnemonicParsing="false" text="Project..." />
+                        <MenuItem mnemonicParsing="false" text="Project..."/>
                     </Menu>
-                    <MenuItem mnemonicParsing="false" text="Open..." />
-                    <MenuItem mnemonicParsing="false" text="Exit" />
+                    <MenuItem mnemonicParsing="false" text="Open..."/>
+                    <MenuItem mnemonicParsing="false" text="Exit"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem mnemonicParsing="false" text="Delete"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" text="About"/>
                 </Menu>
             </MenuBar>
             <BorderPane fx:id="titleBarPanel" prefHeight="28.0" HBox.hgrow="ALWAYS">
                 <center>
-                    <Label fx:id="titleBarLabel" text="Sssj Card Designer" BorderPane.alignment="CENTER_LEFT" />
+                    <Label fx:id="titleBarLabel" text="Sssj Card Designer" BorderPane.alignment="CENTER_LEFT"/>
                 </center>
             </BorderPane>
             <HBox prefHeight="28.0">
-                <Button fx:id="minimumButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#minimizeWindow">
-                    <graphic>
-                        <SVGPath content="M0 0 L0 1 L10 1 L10 0 Z"/>
-                    </graphic>
-                </Button>
-                <Button fx:id="maximumButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#maximizeWindow"/>
-                <Button fx:id="cancelButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="48.0" onAction="#closeWindow">
-                    <graphic>
-                        <SVGPath content="M0 0 L0 1 L4 5 L0 9 L0 10 L1 10 L5 6 L9 10 L10 10 L10 9 L6 5 L10 1 L10 0 L9 0 L5 4 L1 0 Z"/>
-                    </graphic>
-                </Button>
+                <Button fx:id="minimumButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity"
+                        minHeight="-Infinity" prefWidth="48.0" onAction="#minimizeWindow"/>
+                <Button fx:id="maximumButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity"
+                        minHeight="-Infinity" prefWidth="48.0" onAction="#maximizeWindow"/>
+                <Button fx:id="cancelButton" styleClass="systemButton" prefHeight="28.0" maxHeight="-Infinity"
+                        minHeight="-Infinity" prefWidth="48.0" onAction="#closeWindow"/>
             </HBox>
         </HBox>
         <BorderPane fx:id="mainPanel" VBox.vgrow="ALWAYS">
             <top>
                 <HBox styleClass="normalPanel" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                     <BorderPane.margin>
-                        <Insets bottom="1.0" />
+                        <Insets bottom="1.0"/>
                     </BorderPane.margin>
                 </HBox>
             </top>
             <left>
                 <VBox styleClass="normalPanel" prefHeight="800.0" prefWidth="20.0" BorderPane.alignment="CENTER">
-                    <ToggleButton fx:id="projectTreeButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true" text="工程"
-                                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="20.0"/>
+                    <ToggleButton fx:id="projectTreeButton" styleClass="pluginButton" mnemonicParsing="false"
+                                  wrapText="true" text="工程"
+                                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                                  prefWidth="20.0"/>
                     <BorderPane.margin>
-                        <Insets right="1.0" />
+                        <Insets right="1.0"/>
                     </BorderPane.margin>
                 </VBox>
             </left>
             <right>
                 <VBox styleClass="normalPanel" maxWidth="20.0" minWidth="20.0" prefHeight="800.0" prefWidth="20.0">
-                    <ToggleButton fx:id="dataSourceButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true" text="数据源"
-                                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="20.0"/>
-                    <ToggleButton fx:id="layerButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true" text="图层"
-                                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="20.0"/>
+                    <ToggleButton fx:id="dataSourceButton" styleClass="pluginButton" mnemonicParsing="false"
+                                  wrapText="true" text="数据源"
+                                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                                  prefWidth="20.0"/>
+                    <ToggleButton fx:id="layerButton" styleClass="pluginButton" mnemonicParsing="false" wrapText="true"
+                                  text="图层"
+                                  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                                  prefWidth="20.0"/>
                     <BorderPane.margin>
-                        <Insets left="1.0" />
+                        <Insets left="1.0"/>
                     </BorderPane.margin>
                 </VBox>
             </right>
             <center>
-                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
             </center>
             <bottom>
-                <VBox fx:id="bottomPanel" prefHeight="41.0" prefWidth="1200.0" spacing="1.0" BorderPane.alignment="CENTER">
+                <VBox fx:id="bottomPanel" prefHeight="41.0" prefWidth="1200.0" spacing="1.0"
+                      BorderPane.alignment="CENTER">
                     <BorderPane.margin>
-                        <Insets top="1.0" />
+                        <Insets top="1.0"/>
                     </BorderPane.margin>
-                    <HBox styleClass="normalPanel" prefHeight="20.0" prefWidth="1200.0" />
-                    <HBox styleClass="normalPanel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="1200.0">
-                        <Label fx:id="leftStatusBar" prefHeight="20.0" />
+                    <HBox styleClass="normalPanel" prefHeight="20.0" prefWidth="1200.0"/>
+                    <HBox styleClass="normalPanel" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0"
+                          prefWidth="1200.0">
+                        <Label fx:id="leftStatusBar" prefHeight="20.0"/>
                         <BorderPane prefHeight="20.0" HBox.hgrow="ALWAYS">
                             <center>
-                                <Label fx:id="centerStatusBar" prefHeight="20.0" BorderPane.alignment="CENTER" />
+                                <Label fx:id="centerStatusBar" prefHeight="20.0" BorderPane.alignment="CENTER"/>
                             </center>
                         </BorderPane>
-                        <Label fx:id="rightStatusBar" prefHeight="20.0" />
+                        <Label fx:id="rightStatusBar" prefHeight="20.0"/>
                         <padding>
-                            <Insets left="5.0" right="5.0" />
+                            <Insets left="5.0" right="5.0"/>
                         </padding>
                     </HBox>
                 </VBox>

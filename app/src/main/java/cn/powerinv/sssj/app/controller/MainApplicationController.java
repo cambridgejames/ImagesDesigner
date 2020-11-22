@@ -1,5 +1,6 @@
 package cn.powerinv.sssj.app.controller;
 
+import cn.powerinv.sssj.app.constant.SvgPathConstant;
 import cn.powerinv.sssj.app.controller.listener.DragListener;
 import cn.powerinv.sssj.app.controller.listener.ResizeListener;
 
@@ -44,8 +45,6 @@ public class MainApplicationController implements Initializable {
     private ResizeListener resizeListener;
 
     private boolean isMaximize;
-    private SVGPath maximizeSVGPath;
-    private SVGPath restoreSVGPath;
 
     private ToggleGroup projectButtonGroup;
     private ToggleGroup pluginButtonGroup;
@@ -57,18 +56,7 @@ public class MainApplicationController implements Initializable {
         resizeListener = new ResizeListener(applicationPanel);
         resizeListener.enableResize();
 
-        maximizeSVGPath = new SVGPath();
-        maximizeSVGPath.setContent("M0 0 L0 10 L10 10 L10 0 L1 0 L1 1 L9 1 L9 9 L1 9 L1 0 Z");
-        restoreSVGPath = new SVGPath();
-        restoreSVGPath.setContent("M0 2 L0 10 L8 10 L8 8 L10 8 L10 0 L2 0 L2 2 L1 2 L1 3 L3 3 " +
-                "L3 1 L9 1 L9 7 L8 7 L8 2 L3 2 L3 3 L7 3 L7 9 L1 9 L1 2 Z");
-        if (isMaximize) {
-            maximumButton.setGraphic(restoreSVGPath);
-        } else {
-            maximumButton.setGraphic(maximizeSVGPath);
-        }
-
-        applicationPanel.setPadding(new Insets(10));
+        initSystemButton();
 
         this.projectButtonGroup = new ToggleGroup();
         projectTreeButton.setToggleGroup(projectButtonGroup);
@@ -88,26 +76,36 @@ public class MainApplicationController implements Initializable {
 
     @FXML
     public void maximizeWindow(ActionEvent actionEvent) {
-        if (isMaximize) {
-            isMaximize= false;
-            applicationPanel.setPadding(new Insets(10));
-            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-            primaryStage.setMaximized(false);
-            maximumButton.setGraphic(maximizeSVGPath);
-            resizeListener.enableResize();
-        } else {
-            isMaximize = true;
-            applicationPanel.setPadding(new Insets(0));
-            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-            primaryStage.setMaximized(true);
-            maximumButton.setGraphic(restoreSVGPath);
-            resizeListener.unableResize();
-        }
+        setMinMaxWindow();
     }
 
     @FXML
     public void closeWindow(ActionEvent actionEvent) {
         Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
         primaryStage.close();
+    }
+
+    private void initSystemButton() {
+        minimumButton.setGraphic(SvgPathConstant.MINIMIZE_SVG_PATH);
+        cancelButton.setGraphic(SvgPathConstant.CANCEL_SVG_PATH);
+        setMinMaxWindow();
+    }
+
+    private void setMinMaxWindow() {
+        if (isMaximize) {
+            isMaximize= false;
+            applicationPanel.setPadding(new Insets(10));
+            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
+            primaryStage.setMaximized(false);
+            maximumButton.setGraphic(SvgPathConstant.RESTORE_SVG_PATH);
+            resizeListener.enableResize();
+        } else {
+            isMaximize = true;
+            applicationPanel.setPadding(new Insets(0));
+            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
+            primaryStage.setMaximized(true);
+            maximumButton.setGraphic(SvgPathConstant.MAXIMIZE_SVG_PATH);
+            resizeListener.unableResize();
+        }
     }
 }
