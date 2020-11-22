@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -18,10 +19,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainApplicationController implements Initializable {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainApplicationController.class);
 
     @FXML public StackPane applicationPanel;
     @FXML public VBox mainBoxPanel;
@@ -62,6 +67,7 @@ public class MainApplicationController implements Initializable {
         resizeListener.enableResize();
 
         initSystemButton();
+        initNormalWindow();
 
         this.projectButtonGroup = new ToggleGroup();
         projectTreeButton.setToggleGroup(projectButtonGroup);
@@ -81,7 +87,7 @@ public class MainApplicationController implements Initializable {
 
     @FXML
     public void maximizeWindow(ActionEvent actionEvent) {
-        setMinMaxWindow();
+        setMinMaxWindow(!isMaximize);
     }
 
     @FXML
@@ -93,24 +99,39 @@ public class MainApplicationController implements Initializable {
     private void initSystemButton() {
         minimumButton.setGraphic(SvgPathConstant.MINIMIZE_SVG_PATH);
         cancelButton.setGraphic(SvgPathConstant.CANCEL_SVG_PATH);
-        setMinMaxWindow();
     }
 
-    private void setMinMaxWindow() {
-        if (isMaximize) {
-            isMaximize= false;
-            applicationPanel.setPadding(new Insets(10));
-            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-            primaryStage.setMaximized(false);
+    private void initNormalWindow() {
+        isMaximize = false;
+        applicationPanel.setPadding(new Insets(10));
+        maximumButton.setGraphic(SvgPathConstant.MAXIMIZE_SVG_PATH);
+        resizeListener.enableResize();
+    }
+
+    private void setMinMaxWindow(boolean targetMaximizeStatus) {
+        Scene currentScene = applicationPanel.getScene();
+        String targetStatusStr = targetMaximizeStatus ? "maximize" : "restore";
+        if (currentScene == null) {
+            LOGGER.warn("Get scene failed, abort to {} the window.", targetStatusStr);
+            initNormalWindow();
+            return;
+        }
+        Stage primaryStage = (Stage) currentScene.getWindow();
+        if (primaryStage == null) {
+            LOGGER.warn("Get stage failed, abort to {} the window.", targetStatusStr);
+            initNormalWindow();
+            return;
+        }
+        if (targetMaximizeStatus) {
+            applicationPanel.setPadding(new Insets(0));
             maximumButton.setGraphic(SvgPathConstant.RESTORE_SVG_PATH);
             resizeListener.enableResize();
         } else {
-            isMaximize = true;
-            applicationPanel.setPadding(new Insets(0));
-            Stage primaryStage = (Stage) applicationPanel.getScene().getWindow();
-            primaryStage.setMaximized(true);
+            applicationPanel.setPadding(new Insets(10));
             maximumButton.setGraphic(SvgPathConstant.MAXIMIZE_SVG_PATH);
             resizeListener.unableResize();
         }
+        this.isMaximize = targetMaximizeStatus;
+        primaryStage.setMaximized(isMaximize);
     }
 }
