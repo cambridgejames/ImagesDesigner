@@ -10,6 +10,9 @@ import javafx.scene.shape.SVGPath;
  * @since 2020-11-22
  */
 public final class SvgPathConstant {
+    private SvgPathConstant() {
+    }
+
     /**
      * 最小化按钮图标
      */

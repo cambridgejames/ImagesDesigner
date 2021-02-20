@@ -1,6 +1,7 @@
 package cn.powerinv.sssj.app.controller;
 
 import cn.powerinv.sssj.app.constant.SvgPathConstant;
+import cn.powerinv.sssj.app.constant.WindowConstant;
 import cn.powerinv.sssj.app.controller.listener.DragListener;
 import cn.powerinv.sssj.app.controller.listener.ResizeListener;
 
@@ -62,9 +63,9 @@ public class MainApplicationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dragListener = new DragListener(applicationPanel);
-        dragListener.enableDrag(titleBarPanel);
-        resizeListener = new ResizeListener(applicationPanel);
-        resizeListener.enableResize();
+        dragListener.enable(titleBarPanel);
+        resizeListener = new ResizeListener(applicationPanel, WindowConstant.WINDOW_BORDER_WIDTH_DEFAULT,
+                WindowConstant.WINDOW_MIN_WIDTH, WindowConstant.WINDOW_MIN_HEIGHT);
 
         initSystemButton();
         initNormalWindow();
@@ -105,7 +106,7 @@ public class MainApplicationController implements Initializable {
         isMaximize = false;
         applicationPanel.setPadding(new Insets(10));
         maximumButton.setGraphic(SvgPathConstant.MAXIMIZE_SVG_PATH);
-        resizeListener.enableResize();
+        resizeListener.enable();
     }
 
     private void setMinMaxWindow(boolean targetMaximizeStatus) {
@@ -125,11 +126,11 @@ public class MainApplicationController implements Initializable {
         if (targetMaximizeStatus) {
             applicationPanel.setPadding(new Insets(0));
             maximumButton.setGraphic(SvgPathConstant.RESTORE_SVG_PATH);
-            resizeListener.enableResize();
+            resizeListener.unable();
         } else {
             applicationPanel.setPadding(new Insets(10));
             maximumButton.setGraphic(SvgPathConstant.MAXIMIZE_SVG_PATH);
-            resizeListener.unableResize();
+            resizeListener.enable();
         }
         this.isMaximize = targetMaximizeStatus;
         primaryStage.setMaximized(isMaximize);

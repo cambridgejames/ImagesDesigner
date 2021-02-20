@@ -39,7 +39,7 @@ public class DragListener implements EventHandler<MouseEvent> {
         }
     }
 
-    public void enableDrag(Node node) {
+    public void enable(Node node) {
         node.setOnMousePressed(this);
         node.setOnMouseDragged(this);
     }
