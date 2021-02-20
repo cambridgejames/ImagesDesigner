@@ -11,8 +11,8 @@
 
     <modules>
         <module>sdk</module>
-        <module>plugins</module>
         <module>app</module>
+        <module>plugins</module>
     </modules>
 
     <dependencyManagement>
