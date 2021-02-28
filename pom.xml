@@ -28,6 +28,12 @@
                 <artifactId>lombok</artifactId>
                 <version>1.18.8</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.pf4j</groupId>
+                <artifactId>pf4j</artifactId>
+                <version>3.6.0</version>
+            </dependency>
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
