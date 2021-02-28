@@ -10,6 +10,64 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>development</artifactId>
+    <packaging>pom</packaging>
 
+    <properties>
+        <deployResource>${project.build.directory}/deployresource</deployResource>
+        <deployOutput>${project.build.directory}/deployoutput</deployOutput>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <!-- 拷贝主程序包 -->
+                    <execution>
+                        <id>copy-main-program</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${deployResource}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/../app/target</directory>
+                                    <filtering>true</filtering>
+                                    <includes>
+                                        <include>*.jar</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+
+                    <!-- 拷贝插件包 -->
+                    <execution>
+                        <id>copy-plugin-packages</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${deployResource}/lib</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/../lib</directory>
+                                    <filtering>true</filtering>
+                                    <includes>
+                                        <include>*.jar</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
