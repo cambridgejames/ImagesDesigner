@@ -4,7 +4,7 @@
 >
 > 此工具用于图片的批量合成，可以将导入的数据源和与之关联的素材图片根据模板文件进行批量合成，减少重复工作，提高出图效率。
 
-## 一、环境
+## 一、环境和配置
 
 ### 1. 开发环境
 
@@ -27,6 +27,9 @@
 
 本项目已配置了相关maven插件，可以直接在项目的根目录使用命令`mvn install`来进行一键式构建。
 
+当控制台中显示`BUILD SUCCESS`字样时，表示构建和打包成功。此时，您可以在`/development/target/deployoutput`目录下找到打好的zip包，
+或在`/development/target/deployresource`目录下手动运行可执行文件进行测试。
+
 ## 三、目录结构
 
 本项目的目录结构及相关说明如下图所示：
@@ -48,6 +51,18 @@
     │     │      └─template 窗口结构定义
     │     └─test 主程序单元测试代码
     │
+    ├─development
+    │  ├─src
+    |  |  ├─main
+    │  |  │  ├─assembly 打包配置清单
+    │  |  │  ├─java
+    │  |  │  └─resources 程序部署和执行脚本
+    │  |  └─test
+    |  |
+    │  └─target 打包输出目录
+    |     ├─deployoutput 程序发布zip包
+    |     └─deployresourc 程序目录
+    |
     ├─docs
     │      Whats_New.md 更新说明文档
     │
